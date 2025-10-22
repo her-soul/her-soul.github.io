@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ShoppingBag, Heart } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { toast } from "sonner";
+import { useState } from "react";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
+  const [selectedImage, setSelectedImage] = useState(0);
 
   if (!product) {
     return (
@@ -45,13 +47,34 @@ const ProductDetail = () => {
 
         {/* Product Detail */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          {/* Product Image */}
-          <div className="aspect-[3/4] overflow-hidden rounded-lg bg-muted shadow-elegant">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="h-full w-full object-cover"
-            />
+          {/* Product Images */}
+          <div className="space-y-4">
+            <div className="aspect-[3/4] overflow-hidden rounded-lg bg-muted shadow-elegant">
+              <img
+                src={product.images[selectedImage]}
+                alt={product.name}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            {product.images.length > 1 && (
+              <div className="grid grid-cols-4 gap-4">
+                {product.images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImage(index)}
+                    className={`aspect-[3/4] overflow-hidden rounded-lg bg-muted transition-all ${
+                      selectedImage === index ? "ring-2 ring-primary shadow-elegant" : "opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${product.name} - View ${index + 1}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product Info */}

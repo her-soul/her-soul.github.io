@@ -27,195 +27,51 @@ export interface Product {
   name: string;
   category: string;
   price: number;
-  image: string;
+  images: string[];
   description: string;
 }
 
 export const products: Product[] = [
   {
     id: 1,
-    name: "Elegant Purple Blazer",
-    category: "Outerwear",
+    name: "Elegant Casual Ensemble",
+    category: "Sets",
     price: 89.99,
-    image: product1,
-    description: "Sophisticated purple blazer with contrasting grey details, perfect for casual and formal occasions."
+    images: [product7, product8, product9, product10],
+    description: "Sophisticated casual wear perfect for any occasion. This versatile ensemble combines comfort with modern elegance."
   },
   {
     id: 2,
-    name: "Classic White Shirt",
-    category: "Tops",
-    price: 45.99,
-    image: product2,
-    description: "Timeless white button-up shirt that pairs perfectly with any outfit."
+    name: "Contemporary Street Style",
+    category: "Sets",
+    price: 85.99,
+    images: [product4, product5, product6, product3],
+    description: "Modern street style outfit that makes a statement. Perfect blend of comfort and contemporary fashion."
   },
   {
     id: 3,
-    name: "Casual Denim Look",
+    name: "Urban Chic Collection",
     category: "Sets",
-    price: 79.99,
-    image: product3,
-    description: "Comfortable casual wear perfect for everyday styling."
+    price: 92.99,
+    images: [product1, product2, product11, product12, product13],
+    description: "Urban sophistication meets effortless style. A complete look for the modern woman."
   },
   {
     id: 4,
-    name: "Stylish Casual Ensemble",
+    name: "Modern Casual Wear",
     category: "Sets",
-    price: 69.99,
-    image: product4,
-    description: "Modern and comfortable casual outfit for any occasion."
+    price: 88.99,
+    images: [product19, product16, product17, product15, product14],
+    description: "Timeless pieces that transition seamlessly from day to night. Contemporary casual wear at its finest."
   },
   {
     id: 5,
-    name: "Contemporary Casual Wear",
+    name: "Versatile Style Set",
     category: "Sets",
-    price: 74.99,
-    image: product5,
-    description: "Chic and versatile casual pieces that blend comfort with style."
-  },
-  {
-    id: 6,
-    name: "Modern Street Style",
-    category: "Sets",
-    price: 72.99,
-    image: product6,
-    description: "Trendy street style outfit perfect for urban fashion lovers."
-  },
-  {
-    id: 7,
-    name: "Effortless Chic Look",
-    category: "Sets",
-    price: 68.99,
-    image: product7,
-    description: "Effortlessly stylish ensemble for the modern woman."
-  },
-  {
-    id: 8,
-    name: "Urban Casual Set",
-    category: "Sets",
-    price: 71.99,
-    image: product8,
-    description: "Contemporary urban wear that combines comfort and elegance."
-  },
-  {
-    id: 9,
-    name: "Relaxed Style Outfit",
-    category: "Sets",
-    price: 66.99,
-    image: product9,
-    description: "Relaxed yet refined outfit perfect for casual outings."
-  },
-  {
-    id: 10,
-    name: "Casual Elegance",
-    category: "Sets",
-    price: 75.99,
-    image: product10,
-    description: "Elegant casual wear that transitions seamlessly from day to night."
-  },
-  {
-    id: 11,
-    name: "Smart Casual Look",
-    category: "Sets",
-    price: 77.99,
-    image: product11,
-    description: "Perfect balance of smart and casual for versatile styling."
-  },
-  {
-    id: 12,
-    name: "Contemporary Fashion",
-    category: "Sets",
-    price: 73.99,
-    image: product12,
-    description: "Modern fashion piece that makes a statement."
-  },
-  {
-    id: 13,
-    name: "Chic Daily Wear",
-    category: "Sets",
-    price: 70.99,
-    image: product13,
-    description: "Stylish daily wear that keeps you looking polished."
-  },
-  {
-    id: 14,
-    name: "Versatile Casual Set",
-    category: "Sets",
-    price: 76.99,
-    image: product14,
-    description: "Versatile pieces that mix and match effortlessly."
-  },
-  {
-    id: 15,
-    name: "Modern Minimalist",
-    category: "Sets",
-    price: 78.99,
-    image: product15,
-    description: "Clean lines and minimalist design for the contemporary woman."
-  },
-  {
-    id: 16,
-    name: "Stylish Comfort Wear",
-    category: "Sets",
-    price: 67.99,
-    image: product16,
-    description: "Comfortable yet stylish outfit for all-day wear."
-  },
-  {
-    id: 17,
-    name: "Urban Chic Ensemble",
-    category: "Sets",
-    price: 74.99,
-    image: product17,
-    description: "Urban sophistication meets casual comfort."
-  },
-  {
-    id: 18,
-    name: "Contemporary Classic",
-    category: "Sets",
-    price: 72.99,
-    image: product18,
-    description: "Classic style with a contemporary twist."
-  },
-  {
-    id: 19,
-    name: "Elegant Casual Wear",
-    category: "Sets",
-    price: 71.99,
-    image: product19,
-    description: "Elegant pieces perfect for casual sophistication."
-  },
-  {
-    id: 20,
-    name: "Modern Essential",
-    category: "Sets",
-    price: 69.99,
-    image: product20,
-    description: "Essential wardrobe piece for the modern woman."
-  },
-  {
-    id: 21,
-    name: "Vibrant Red Blazer",
-    category: "Outerwear",
-    price: 92.99,
-    image: product21,
-    description: "Bold red blazer with grey accents, a statement piece for any wardrobe."
-  },
-  {
-    id: 22,
-    name: "Red Statement Jacket",
-    category: "Outerwear",
     price: 94.99,
-    image: product22,
-    description: "Eye-catching red jacket that elevates any look."
-  },
-  {
-    id: 23,
-    name: "Classic Red Blazer",
-    category: "Outerwear",
-    price: 91.99,
-    image: product23,
-    description: "Timeless red blazer perfect for making a confident impression."
+    images: [product20, product22, product23, product21],
+    description: "Complete versatile outfit perfect for any setting. Mix and match pieces for endless styling options."
   }
 ];
 
-export const categories = ["All", "Outerwear", "Tops", "Sets"];
+export const categories = ["All", "Sets"];

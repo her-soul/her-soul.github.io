@@ -12,7 +12,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       <Card className="group overflow-hidden border-border hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
         <div className="aspect-[3/4] overflow-hidden bg-muted">
           <img
-            src={product.image}
+            src={product.images[0]}
             alt={product.name}
             className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
