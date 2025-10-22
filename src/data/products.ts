@@ -37,7 +37,7 @@ export const products: Product[] = [
     name: "Elegant Casual Ensemble",
     category: "Sets",
     price: 89.99,
-    images: [product7, product8, product9, product10],
+    images: [product16, product21, product22, product23],
     description: "Sophisticated casual wear perfect for any occasion. This versatile ensemble combines comfort with modern elegance."
   },
   {
@@ -45,7 +45,7 @@ export const products: Product[] = [
     name: "Contemporary Street Style",
     category: "Sets",
     price: 85.99,
-    images: [product4, product5, product6, product3],
+    images: [product1, product17, product18, product19, product20],
     description: "Modern street style outfit that makes a statement. Perfect blend of comfort and contemporary fashion."
   },
   {
@@ -53,7 +53,7 @@ export const products: Product[] = [
     name: "Urban Chic Collection",
     category: "Sets",
     price: 92.99,
-    images: [product1, product2, product11, product12, product13],
+    images: [product7, product8, product9, product10],
     description: "Urban sophistication meets effortless style. A complete look for the modern woman."
   },
   {
@@ -61,7 +61,7 @@ export const products: Product[] = [
     name: "Modern Casual Wear",
     category: "Sets",
     price: 88.99,
-    images: [product19, product16, product17, product15, product14],
+    images: [product11, product12, product13, product14, product15],
     description: "Timeless pieces that transition seamlessly from day to night. Contemporary casual wear at its finest."
   },
   {
@@ -69,7 +69,7 @@ export const products: Product[] = [
     name: "Versatile Style Set",
     category: "Sets",
     price: 94.99,
-    images: [product20, product22, product23, product21],
+    images: [product3, product4, product5, product6],
     description: "Complete versatile outfit perfect for any setting. Mix and match pieces for endless styling options."
   }
 ];

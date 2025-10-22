@@ -23,7 +23,9 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logo} alt="Soulista" className="h-10 w-auto" />
+            <span className="text-2xl font-serif font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Soulista
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
