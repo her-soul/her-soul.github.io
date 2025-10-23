@@ -52,22 +52,16 @@ const ProductDetail = () => {
         {/* Product Detail */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Product Images */}
-          <div className="space-y-4">
-            <div className="aspect-[3/4] overflow-hidden rounded-lg bg-muted shadow-elegant">
-              <img
-                src={product.images[selectedImage]}
-                alt={product.name}
-                className="h-full w-full object-cover"
-              />
-            </div>
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* Thumbnails - Left side on desktop, horizontal scroll on mobile */}
             {product.images.length > 1 && (
-              <div className="grid grid-cols-4 gap-4">
+              <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible order-2 md:order-1">
                 {product.images.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`aspect-[3/4] overflow-hidden rounded-lg bg-muted transition-all ${
-                      selectedImage === index ? "ring-2 ring-primary shadow-elegant" : "opacity-60 hover:opacity-100"
+                    className={`flex-shrink-0 w-20 h-20 overflow-hidden rounded-lg bg-muted transition-all ${
+                      selectedImage === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
                     }`}
                   >
                     <img
@@ -79,6 +73,17 @@ const ProductDetail = () => {
                 ))}
               </div>
             )}
+            
+            {/* Main Image - Compact size */}
+            <div className="flex-1 order-1 md:order-2">
+              <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-lg bg-muted shadow-elegant">
+                <img
+                  src={product.images[selectedImage]}
+                  alt={product.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Product Info */}
