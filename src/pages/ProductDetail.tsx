@@ -60,14 +60,14 @@ const ProductDetail = () => {
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`flex-shrink-0 w-20 h-20 overflow-hidden rounded-lg bg-muted transition-all ${
+                    className={`flex-shrink-0 w-20 h-24 overflow-hidden rounded-lg bg-muted transition-all ${
                       selectedImage === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
                     }`}
                   >
                     <img
                       src={image}
                       alt={`${product.name} - View ${index + 1}`}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain"
                     />
                   </button>
                 ))}
@@ -76,11 +76,11 @@ const ProductDetail = () => {
             
             {/* Main Image - Compact size */}
             <div className="flex-1 order-1 md:order-2">
-              <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-lg bg-muted shadow-elegant">
+              <div className="aspect-[3/4] max-w-md mx-auto overflow-hidden rounded-lg bg-muted shadow-elegant">
                 <img
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
               </div>
             </div>
