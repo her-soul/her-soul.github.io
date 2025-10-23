@@ -5,14 +5,34 @@ import { ArrowLeft, ShoppingBag, Heart } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { toast } from "sonner";
 import { useState, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
-  const [selectedImage, setSelectedImage] = useState(0);
+  const isMobile = useIsMobile();
+  
+  // Set initial image based on product
+  const getInitialImage = () => {
+    if (!product) return 0;
+    // Product 1 (Elegant Casual Ensemble) - start with second image
+    if (product.id === 1) return 1;
+    // Product 5 (Versatile Style Set) - no initial selection (will show first but indicate none selected)
+    return 0;
+  };
+  
+  const [selectedImage, setSelectedImage] = useState(getInitialImage());
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setSelectedImage(getInitialImage());
   }, [id]);
 
   if (!product) {
@@ -74,15 +94,36 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* Main Image - Compact, uncropped on mobile */}
+            {/* Main Image - Swipeable on mobile, static on desktop */}
             <div className="flex-1 order-1 md:order-2">
-              <div className="max-w-md w-full mx-auto rounded-lg bg-muted shadow-elegant h-[60vh] md:h-auto md:aspect-[3/4] flex items-center justify-center overflow-hidden">
-                <img
-                  src={product.images[selectedImage]}
-                  alt={product.name}
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
+              {isMobile ? (
+                <Carousel className="w-full" opts={{ startIndex: selectedImage }}>
+                  <CarouselContent>
+                    {product.images.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <div className="w-full rounded-lg bg-muted shadow-elegant h-[60vh] flex items-center justify-center overflow-hidden">
+                          <img
+                            src={image}
+                            alt={`${product.name} - View ${index + 1}`}
+                            className="max-h-full max-w-full object-contain"
+                            onClick={() => setSelectedImage(index)}
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
+                </Carousel>
+              ) : (
+                <div className="max-w-md w-full mx-auto rounded-lg bg-muted shadow-elegant h-auto aspect-[3/4] flex items-center justify-center overflow-hidden">
+                  <img
+                    src={product.images[selectedImage]}
+                    alt={product.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              )}
             </div>
           </div>
 
