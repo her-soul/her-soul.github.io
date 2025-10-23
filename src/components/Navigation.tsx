@@ -20,16 +20,16 @@ export const Navigation = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-serif font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Soulista
-            </span>
+        {/* Logo - Centered at top */}
+        <div className="flex justify-center py-4 border-b border-border/50">
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Soulista" className="h-24 w-auto" />
           </Link>
-
+        </div>
+        
+        <div className="flex items-center justify-between h-16">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 mx-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -49,7 +49,7 @@ export const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-smooth"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-smooth mx-auto"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Instagram, Facebook } from "lucide-react";
 
 const Home = () => {
   const featuredProducts = products.slice(0, 4);
@@ -73,6 +73,26 @@ const Home = () => {
               We believe that modern women deserve clothing that empowers them to feel confident, 
               comfortable, and stylish in every moment of their day.
             </p>
+            <div className="flex gap-6 justify-center mb-8">
+              <a 
+                href="https://www.instagram.com/soulista__/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-smooth flex items-center gap-2"
+              >
+                <Instagram className="h-6 w-6" />
+                <span>Follow us on Instagram</span>
+              </a>
+              <a 
+                href="https://www.facebook.com/Soulistaa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-smooth flex items-center gap-2"
+              >
+                <Facebook className="h-6 w-6" />
+                <span>Like us on Facebook</span>
+              </a>
+            </div>
             <Link to="/about">
               <Button variant="outline">
                 Learn More About Us

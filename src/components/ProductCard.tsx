@@ -22,7 +22,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           <h3 className="font-semibold text-base mb-2 line-clamp-1">{product.name}</h3>
         </CardContent>
         <CardFooter className="p-4 pt-0">
-          <p className="text-lg font-bold text-primary">${product.price}</p>
+          <p className="text-lg font-bold text-primary">£{product.price}</p>
         </CardFooter>
       </Card>
     </Link>

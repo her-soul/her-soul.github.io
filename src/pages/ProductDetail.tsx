@@ -4,12 +4,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ShoppingBag, Heart } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { toast } from "sonner";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
   const [selectedImage, setSelectedImage] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
 
   if (!product) {
     return (
@@ -81,7 +85,7 @@ const ProductDetail = () => {
           <div className="flex flex-col justify-center">
             <p className="text-sm text-muted-foreground mb-2">{product.category}</p>
             <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
-            <p className="text-3xl font-bold text-primary mb-6">${product.price}</p>
+            <p className="text-3xl font-bold text-primary mb-6">£{product.price}</p>
             <p className="text-lg text-muted-foreground mb-8">{product.description}</p>
 
             {/* Action Buttons */}

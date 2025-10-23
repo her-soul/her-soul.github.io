@@ -13,6 +13,9 @@ export const Footer = () => {
             <p className="text-sm text-muted-foreground">
               Modern women's casual wear that combines elegance with comfort.
             </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              📍 Egypt
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -45,13 +48,13 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Connect With Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
+              <a href="https://www.instagram.com/soulista__/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-smooth">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
+              <a href="https://www.facebook.com/Soulistaa" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-smooth">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
+              <a href="mailto:contact@soulista.com" className="text-muted-foreground hover:text-primary transition-smooth">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
