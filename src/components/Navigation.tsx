@@ -28,9 +28,13 @@ export const Navigation = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation - Center with Logo */}
-          <div className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
+          {/* Logo - Center */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
             <img src={logo} alt="Soulista" className="h-12 w-auto" />
+          </div>
+
+          {/* Desktop Navigation - Right */}
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -42,10 +46,6 @@ export const Navigation = () => {
                 {link.name}
               </Link>
             ))}
-          </div>
-
-          {/* Shopping Bag - Right */}
-          <div className="hidden md:block">
             <Button variant="outline" size="icon" className="relative">
               <ShoppingBag className="h-5 w-5" />
             </Button>
