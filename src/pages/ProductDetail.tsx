@@ -12,14 +12,12 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "@/components/ui/carousel";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
   const isMobile = useIsMobile();
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   
   // Set initial image based on product
   const getInitialImage = () => {
@@ -31,15 +29,6 @@ const ProductDetail = () => {
   };
   
   const [selectedImage, setSelectedImage] = useState(getInitialImage());
-
-  // Sync carousel with selected image on mobile
-  useEffect(() => {
-    if (!carouselApi) return;
-
-    carouselApi.on("select", () => {
-      setSelectedImage(carouselApi.selectedScrollSnap());
-    });
-  }, [carouselApi]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -90,15 +79,10 @@ const ProductDetail = () => {
                 {product.images.map((image, index) => (
                   <button
                     key={index}
-                    onClick={() => {
-                      setSelectedImage(index);
-                      if (isMobile && carouselApi) {
-                        carouselApi.scrollTo(index);
-                      }
-                    }}
+                    onClick={() => setSelectedImage(index)}
                     className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-24 overflow-hidden rounded-lg bg-muted transition-all duration-300 ${
                       selectedImage === index 
-                        ? "ring-2 ring-primary scale-105 shadow-[0_0_20px_rgba(var(--primary),0.3)]" 
+                        ? "ring-2 ring-primary scale-105" 
                         : "opacity-60 hover:opacity-100 hover:scale-110"
                     }`}
                   >
@@ -115,19 +99,16 @@ const ProductDetail = () => {
             {/* Main Image - Swipeable on mobile, static on desktop */}
             <div className="flex-1 order-1 md:order-2">
               {isMobile ? (
-                <Carousel 
-                  className="w-full" 
-                  opts={{ startIndex: selectedImage }}
-                  setApi={setCarouselApi}
-                >
-                  <CarouselContent>
+                <Carousel className="w-full" opts={{ startIndex: selectedImage, duration: 20 }}>
+                  <CarouselContent className="-ml-2 md:-ml-4">
                     {product.images.map((image, index) => (
-                      <CarouselItem key={index}>
-                        <div className="w-full rounded-lg bg-muted shadow-elegant h-[60vh] flex items-center justify-center overflow-hidden">
+                      <CarouselItem key={index} className="pl-2 md:pl-4">
+                        <div className="w-full rounded-lg bg-muted shadow-elegant h-[60vh] flex items-center justify-center overflow-hidden transition-transform duration-300">
                           <img
                             src={image}
                             alt={`${product.name} - View ${index + 1}`}
-                            className="max-h-full max-w-full object-contain"
+                            className="max-h-full max-w-full object-contain animate-scale-in"
+                            onClick={() => setSelectedImage(index)}
                           />
                         </div>
                       </CarouselItem>
