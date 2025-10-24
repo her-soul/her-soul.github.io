@@ -12,6 +12,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 const ProductDetail = () => {
@@ -29,11 +30,20 @@ const ProductDetail = () => {
   };
   
   const [selectedImage, setSelectedImage] = useState(getInitialImage());
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setSelectedImage(getInitialImage());
   }, [id]);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    carouselApi.on('select', () => {
+      setSelectedImage(carouselApi.selectedScrollSnap());
+    });
+  }, [carouselApi]);
 
   if (!product) {
     return (
@@ -79,10 +89,15 @@ const ProductDetail = () => {
                 {product.images.map((image, index) => (
                   <button
                     key={index}
-                    onClick={() => setSelectedImage(index)}
+                    onClick={() => {
+                      setSelectedImage(index);
+                      if (isMobile && carouselApi) {
+                        carouselApi.scrollTo(index);
+                      }
+                    }}
                     className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-24 overflow-hidden rounded-lg bg-muted transition-all duration-300 ${
                       selectedImage === index 
-                        ? "ring-2 ring-primary scale-105" 
+                        ? "ring-2 ring-primary scale-105 shadow-[0_0_20px_rgba(var(--primary),0.3)]" 
                         : "opacity-60 hover:opacity-100 hover:scale-110"
                     }`}
                   >
@@ -99,7 +114,7 @@ const ProductDetail = () => {
             {/* Main Image - Swipeable on mobile, static on desktop */}
             <div className="flex-1 order-1 md:order-2">
               {isMobile ? (
-                <Carousel className="w-full" opts={{ startIndex: selectedImage, duration: 20 }}>
+                <Carousel className="w-full" setApi={setCarouselApi}>
                   <CarouselContent className="-ml-2 md:-ml-4">
                     {product.images.map((image, index) => (
                       <CarouselItem key={index} className="pl-2 md:pl-4">
