@@ -117,17 +117,17 @@ const ProductDetail = () => {
               {isMobile ? (
                 <Carousel 
                   className="w-full" 
-                  opts={{ startIndex: selectedImage, align: "center" }}
+                  opts={{ startIndex: selectedImage }}
                   setApi={setCarouselApi}
                 >
-                  <CarouselContent className="-ml-2 md:-ml-4">
+                  <CarouselContent>
                     {product.images.map((image, index) => (
-                      <CarouselItem key={index} className="pl-2 md:pl-4">
+                      <CarouselItem key={index}>
                         <div className="w-full rounded-lg bg-muted shadow-elegant h-[60vh] flex items-center justify-center overflow-hidden">
                           <img
                             src={image}
                             alt={`${product.name} - View ${index + 1}`}
-                            className="max-h-full max-w-full object-contain transition-opacity duration-500"
+                            className="max-h-full max-w-full object-contain"
                           />
                         </div>
                       </CarouselItem>
