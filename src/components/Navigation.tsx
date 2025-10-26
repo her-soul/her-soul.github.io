@@ -19,10 +19,10 @@ export const Navigation = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Her Soul Text - Left */}
-          <Link to="/" className="flex flex-col items-start leading-none">
-            <span className="text-xs font-serif uppercase tracking-wider text-foreground">HER</span>
-            <span className="text-3xl font-serif font-bold uppercase text-foreground">SOUL</span>
+          {/* her soul Text - Left */}
+          <Link to="/" className="flex flex-col items-center leading-none">
+            <span className="text-xs font-red-velvet tracking-wider text-foreground">her</span>
+            <span className="text-3xl font-red-velvet font-bold text-foreground">soul</span>
           </Link>
 
           {/* Desktop Navigation - Right */}
