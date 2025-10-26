@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail } from "lucide-react";
-import logo from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
@@ -9,7 +8,10 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <img src={logo} alt="Soulista" className="h-20 w-auto mb-4" />
+            <div className="flex flex-col items-start leading-none gap-0 mb-4">
+              <span className="text-xs font-brand tracking-wider text-foreground">her</span>
+              <span className="text-3xl font-brand text-foreground uppercase">SOUL</span>
+            </div>
             <p className="text-sm text-muted-foreground">
               Modern women's casual wear that combines elegance with comfort.
             </p>

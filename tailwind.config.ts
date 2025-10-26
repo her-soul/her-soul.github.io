@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        'red-velvet': ['Red Hat Display', 'sans-serif'],
+        'brand': ['Montserrat', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
