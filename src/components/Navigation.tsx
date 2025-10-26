@@ -2,8 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
-import logo from "@/assets/logo.png";
-
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -21,17 +19,11 @@ export const Navigation = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Soulista Text - Left */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-serif font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Soulista
-            </span>
+          {/* Her Soul Text - Left */}
+          <Link to="/" className="flex flex-col items-start leading-none">
+            <span className="text-xs font-serif uppercase tracking-wider text-foreground">HER</span>
+            <span className="text-3xl font-serif font-bold uppercase text-foreground">SOUL</span>
           </Link>
-
-          {/* Logo - Center */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-            <img src={logo} alt="Soulista" className="h-12 w-auto" />
-          </div>
 
           {/* Desktop Navigation - Right */}
           <div className="hidden md:flex items-center space-x-6">
