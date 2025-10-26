@@ -20,7 +20,7 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* HER SOUL Text - Left */}
-          <Link to="/" className="flex flex-col items-center leading-none gap-0">
+          <Link to="/" className="flex flex-col items-start leading-none gap-0">
             <span className="text-xs font-brand tracking-wider text-foreground uppercase">HER</span>
             <span className="text-3xl font-brand text-foreground uppercase">SOUL</span>
           </Link>
