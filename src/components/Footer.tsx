@@ -9,7 +9,7 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex flex-col items-start leading-none gap-0 mb-4">
-              <span className="text-xs font-brand tracking-wider text-foreground">her</span>
+              <span className="text-xs font-brand tracking-wider text-foreground uppercase">HER</span>
               <span className="text-3xl font-brand text-foreground uppercase">SOUL</span>
             </div>
             <p className="text-sm text-muted-foreground">

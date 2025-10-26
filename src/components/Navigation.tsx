@@ -19,9 +19,9 @@ export const Navigation = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* her SOUL Text - Left */}
+          {/* HER SOUL Text - Left */}
           <Link to="/" className="flex flex-col items-center leading-none gap-0">
-            <span className="text-xs font-brand tracking-wider text-foreground">her</span>
+            <span className="text-xs font-brand tracking-wider text-foreground uppercase">HER</span>
             <span className="text-3xl font-brand text-foreground uppercase">SOUL</span>
           </Link>
 
